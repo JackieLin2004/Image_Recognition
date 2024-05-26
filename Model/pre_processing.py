@@ -44,27 +44,27 @@ def find_label(path_name):
             break
 
     if path_name[index] == 'A':
-        return 'A'
+        return 0
     elif path_name[index] == 'B':
-        return 'B'
+        return 1
     elif path_name[index] == 'C':
-        return 'C'
+        return 2
     elif path_name[index] == 'D':
-        return 'D'
+        return 3
     elif path_name[index] == 'E':
-        return 'E'
+        return 4
     elif path_name[index] == 'F':
-        return 'F'
+        return 5
     elif path_name[index] == 'G':
-        return 'G'
+        return 6
     elif path_name[index] == 'H':
-        return 'H'
+        return 7
     elif path_name[index] == 'I':
-        return 'I'
+        return 8
     elif path_name[index] == 'J':
-        return 'J'
+        return 9
     else:
-        return 'K'
+        return 10
 
 
 def load_data():
@@ -112,17 +112,14 @@ def load_data():
     print('得到的测试集共有 ' + len(test_data).__str__() + ' 条')
 
     train_dataset = MyDataset(train_data, transform=transform, loader=my_loader)
-    train_loader = DataLoader(train_dataset, shuffle=True, batch_size=32, num_workers=0)
+    train_loader = DataLoader(train_dataset, shuffle=True, batch_size=8, num_workers=0)
     test_dataset = MyDataset(test_data, transform=transform, loader=my_loader)
-    test_loader = DataLoader(test_dataset, shuffle=False, batch_size=32, num_workers=0)
+    test_loader = DataLoader(test_dataset, shuffle=False, batch_size=8, num_workers=0)
 
     print('End of data processing...')
 
     return train_loader, test_loader
 
-
 # 单元测试
-if __name__ == '__main__':
-    a, b = load_data()
-    print(a)
-    print(b)
+# if __name__ == '__main__':
+#     a, b = load_data()
