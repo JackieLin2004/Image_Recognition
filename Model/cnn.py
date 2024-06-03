@@ -56,12 +56,13 @@ model = CNN()
 
 # 定义损失函数和优化器
 criterion = torch.nn.CrossEntropyLoss()
-optimizer = optim.SGD(model.parameters(), lr=0.005, momentum=0.5)
+optimizer = optim.SGD(model.parameters(), lr=0.001, momentum=0.5)
 
 train_loader, test_loader = load_data()
 
 x = []
 y = []
+z = []
 
 
 def train(epoch):
@@ -96,11 +97,12 @@ def test():
             _, predicted = torch.max(outputs.data, dim=1)
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
+    z.append(100 * correct / total)
     print('accuracy on test set: %d %% ' % (100 * correct / total))
 
 
 if __name__ == '__main__':
-    for epoch in range(100):
+    for epoch in range(1000):
         train(epoch)
         test()
 
@@ -108,4 +110,12 @@ if __name__ == '__main__':
     plt.plot(x, y)
     plt.xlabel('Epoch')
     plt.ylabel('Loss')
+    plt.savefig(f"./loss_test.png")
+    plt.show()
+
+    # 绘制准确率曲线
+    plt.plot(x, z)
+    plt.xlabel('Epoch')
+    plt.ylabel('accuracy %')
+    plt.savefig(f"./accuracy_test.png")
     plt.show()
