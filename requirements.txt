@@ -1,6 +1,8 @@
-pillow
-torchvision
+pillow~=10.3.0
+torchvision~=0.15.2
 torch
-numpy
+numpy~=1.26.4
 tqdm
-matplotlib
+matplotlib~=3.8.4
+statsmodels~=0.14.2
+scipy~=1.13.1
