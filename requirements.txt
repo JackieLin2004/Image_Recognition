@@ -6,3 +6,6 @@ tqdm
 matplotlib~=3.8.4
 statsmodels~=0.14.2
 scipy~=1.13.1
+opencv-python~=4.9.0.80
+scikit-learn~=1.5.0
+imutils~=0.5.4
