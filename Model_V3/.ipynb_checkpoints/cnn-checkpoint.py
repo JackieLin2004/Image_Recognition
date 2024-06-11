@@ -148,7 +148,7 @@ if __name__ == '__main__':
     plt.ylabel('Precision')
     plt.title('5:5 Precision-Recall Curve')
     plt.legend(loc="best")
-    plt.savefig(f"./5:5-Precision-Recall-Curve.png")
+    plt.savefig(f"./5_5-Precision-Recall-Curve.png")
     plt.show()
     plt.close()
     # ==================================================================================
@@ -209,7 +209,7 @@ if __name__ == '__main__':
     plt.ylabel('Precision')
     plt.title('6:4 Precision-Recall Curve')
     plt.legend(loc="best")
-    plt.savefig(f"./6:4-Precision-Recall-Curve.png")
+    plt.savefig(f"./6_4-Precision-Recall-Curve.png")
     plt.show()
     plt.close()
     # ==================================================================================
@@ -270,7 +270,7 @@ if __name__ == '__main__':
     plt.ylabel('Precision')
     plt.title('7:3 Precision-Recall Curve')
     plt.legend(loc="best")
-    plt.savefig(f"./7:3-Precision-Recall-Curve.png")
+    plt.savefig(f"./7_3-Precision-Recall-Curve.png")
     plt.show()
     plt.close()
     # ==================================================================================
@@ -331,7 +331,7 @@ if __name__ == '__main__':
     plt.ylabel('Precision')
     plt.title('8:2 Precision-Recall Curve')
     plt.legend(loc="best")
-    plt.savefig(f"./8:2-Precision-Recall-Curve.png")
+    plt.savefig(f"./8_2-Precision-Recall-Curve.png")
     plt.show()
     plt.close()
     # ==================================================================================
@@ -392,7 +392,7 @@ if __name__ == '__main__':
     plt.ylabel('Precision')
     plt.title('9:1 Precision-Recall Curve')
     plt.legend(loc="best")
-    plt.savefig(f"./9:1-Precision-Recall-Curve.png")
+    plt.savefig(f"./9_1-Precision-Recall-Curve.png")
     plt.show()
     plt.close()
     # ==================================================================================

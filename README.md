@@ -79,23 +79,45 @@ python cnn.py
 
 - 我们也增加性能指标来评估模型，主要包括 “**轮次**-**损失值** / **准确率** / **精确率** / **召回率**” 的图像，以及 “**召回率** / **精确率**” 的图像
 
-**简单平均移动** ![SMA_Loss.png](Model_V3%2FSMA_Loss.png)![SMA_Accuracy.png](Model_V3%2FSMA_Accuracy.png)![SMA_Precision.png](Model_V3%2FSMA_Precision.png)![SMA_Recall.png](Model_V3%2FSMA_Recall.png)
+**简单平均移动** <br/>
+![SMA_Loss.png](Model_V3%2FSMA_Loss.png)![SMA_Accuracy.png](Model_V3%2FSMA_Accuracy.png)
+![SMA_Precision.png](Model_V3%2FSMA_Precision.png)![SMA_Recall.png](Model_V3%2FSMA_Recall.png)
 <br/>
-<br/>
-
-**指数平均移动** ![EMA_Loss.png](Model_V3%2FEMA_Loss.png)![EMA_Accuracy.png](Model_V3%2FEMA_Accuracy.png)![EMA_Precision.png](Model_V3%2FEMA_Precision.png)![EMA_Recall.png](Model_V3%2FEMA_Recall.png)
-<br/>
-<br/>
-
-**高斯滤波平滑** <br/>![GAU_Loss.png](Model_V3%2FGAU_Loss.png)![GAU_Accuracy.png](Model_V3%2FGAU_Accuracy.png)![GAU_Precision.png](Model_V3%2FGAU_Precision.png)![GAU_Recall.png](Model_V3%2FGAU_Recall.png)
 <br/>
 <br/>
 
-**中位数滤波平滑** <br/>![MED_Loss.png](Model_V3%2FMED_Loss.png)![MED_Accuracy.png](Model_V3%2FMED_Accuracy.png)![MED_Precision.png](Model_V3%2FMED_Precision.png)![MED_Recall.png](Model_V3%2FMED_Recall.png)
+**指数平均移动** <br/>
+![EMA_Loss.png](Model_V3%2FEMA_Loss.png)
+![EMA_Accuracy.png](Model_V3%2FEMA_Accuracy.png)
+![EMA_Precision.png](Model_V3%2FEMA_Precision.png)
+![EMA_Recall.png](Model_V3%2FEMA_Recall.png)
+<br/>
 <br/>
 <br/>
 
-**局部加权回归平滑** ![LOW_Loss.png](Model_V3%2FLOW_Loss.png)![LOW_Accuracy.png](Model_V3%2FLOW_Accuracy.png)![LOW_Precision.png](Model_V3%2FLOW_Precision.png)![LOW_Recall.png](Model_V3%2FLOW_Recall.png)
+**高斯滤波平滑** <br/>
+![GAU_Loss.png](Model_V3%2FGAU_Loss.png)
+![GAU_Accuracy.png](Model_V3%2FGAU_Accuracy.png)
+![GAU_Precision.png](Model_V3%2FGAU_Precision.png)
+![GAU_Recall.png](Model_V3%2FGAU_Recall.png)
+<br/>
+<br/>
+<br/>
+
+**中位数滤波平滑** <br/>
+![MED_Loss.png](Model_V3%2FMED_Loss.png)
+![MED_Accuracy.png](Model_V3%2FMED_Accuracy.png)
+![MED_Precision.png](Model_V3%2FMED_Precision.png)
+![MED_Recall.png](Model_V3%2FMED_Recall.png)
+<br/>
+<br/>
+<br/>
+
+**局部加权回归平滑** <br/>
+![LOW_Loss.png](Model_V3%2FLOW_Loss.png)
+![LOW_Accuracy.png](Model_V3%2FLOW_Accuracy.png)
+![LOW_Precision.png](Model_V3%2FLOW_Precision.png)
+![LOW_Recall.png](Model_V3%2FLOW_Recall.png)
 
 ### 总结
 
@@ -117,7 +139,7 @@ python cnn.py
 
 ![GAU_Recall.png](Model_V3%2FGAU_Recall.png)
 
-最后根据数据集的样本数量以及训练集与测试集比例的不同，综合可视化的图像来分析，可以明显看出训练测试比例为7:3的时候效果最好，其余不相上下，但是整体都是呈现出曲线函数的趋势，且最后收敛
+最后根据数据集的样本数量以及训练集与测试集比例的不同，综合可视化的图像及其性能来分析，可以明显看出训练测试比例为9:1的时候效果最好，和7:3的最后的精确率、准确率和召回率都收敛于1，8:2次之，而5:5和6:4效果偏弱一些，但是整体都是呈现出曲线函数的趋势，且最后收敛
 
 另外，我们也给出不同训练集测试集比例下的 `Recall-Precision` 图像：<br/>
 ![5_5-Precision-Recall-Curve.png](Model_V3%2F5_5-Precision-Recall-Curve.png)

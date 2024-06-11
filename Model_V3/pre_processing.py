@@ -10,7 +10,7 @@ def my_loader(path):
 
 
 # 在data列表中存入图片路径和标签
-test = [[i] for i in range(12)]
+test = []
 
 
 def init_process(path, lens, group, sample):
@@ -18,25 +18,33 @@ def init_process(path, lens, group, sample):
     label = find_label(path)
 
     num = int(lens[1] * sample)
-    my_list = list(range(1, lens[1] + 1))
+    my_list = list(range(lens[0], lens[1]))
     random_nums = random.sample(my_list, num)
+    # print(my_list)
+    # print("==================================================================================")
+    # print(random_nums)
+    # print("==================================================================================")
 
     for i in range(lens[0], lens[1]):
         # 表示没被用来训练的这部分之后会被用来测试
         if i not in random_nums:
             test[group].append(i)
-        data.append([path % i, label])
+        else:
+            data.append([path % i, label])
+    # print(data)
+    # print("==================================================================================")
 
     return data
 
 
-def init_test(path, lens, group):
+def init_test(path, group):
     # 这里的lens没用了其实
     data = []
     label = find_label(path)
     for i in test[group]:
         data.append([path % i, label])
-
+    # print(data)
+    # print("==================================================================================")
     return data
 
 
@@ -90,6 +98,9 @@ def find_label(path_name):
 
 
 def load_data(sample):
+    global test
+    test = [[] for i in range(12)]
+
     print('Data processing...')
 
     # 图像变换操作
@@ -103,15 +114,7 @@ def load_data(sample):
         transforms.Normalize(mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5))
     ])
 
-    datas = [38, 31, 42, 31, 38, 34, 37, 35, 28, 25, 30]
-    train_rate = 0.8
-
     print(sample)
-
-    train_data = []
-    test_data = []
-    train_data.clear()
-    test_data.clear()
 
     # 训练集的数据（路径+标签）的列表
     train_data = (init_process('../Dataset/datas/A (%d).bmp', [1, 39], 1, sample)
@@ -127,21 +130,23 @@ def load_data(sample):
                   + init_process('../Dataset/datas/K (%d).bmp', [1, 31], 11, sample)
                   )
     print('得到的训练集共有 ' + len(train_data).__str__() + ' 条')
+    # print(train_data)
 
     # 测试集的数据（路径+标签）的列表
-    test_data = (init_test('../Dataset/datas/A (%d).bmp', [1, 9], 1)
-                 + init_test('../Dataset/datas/B (%d).bmp', [1, 8], 2)
-                 + init_test('../Dataset/datas/C (%d).bmp', [1, 10], 3)
-                 + init_test('../Dataset/datas/D (%d).bmp', [1, 8], 4)
-                 + init_test('../Dataset/datas/E (%d).bmp', [1, 9], 5)
-                 + init_test('../Dataset/datas/F (%d).bmp', [1, 8], 6)
-                 + init_test('../Dataset/datas/G (%d).bmp', [1, 9], 7)
-                 + init_test('../Dataset/datas/H (%d).bmp', [1, 8], 8)
-                 + init_test('../Dataset/datas/I (%d).bmp', [1, 7], 9)
-                 + init_test('../Dataset/datas/J (%d).bmp', [1, 6], 10)
-                 + init_test('../Dataset/datas/K (%d).bmp', [1, 7], 11)
+    test_data = (init_test('../Dataset/datas/A (%d).bmp', 1)
+                 + init_test('../Dataset/datas/B (%d).bmp', 2)
+                 + init_test('../Dataset/datas/C (%d).bmp', 3)
+                 + init_test('../Dataset/datas/D (%d).bmp', 4)
+                 + init_test('../Dataset/datas/E (%d).bmp', 5)
+                 + init_test('../Dataset/datas/F (%d).bmp', 6)
+                 + init_test('../Dataset/datas/G (%d).bmp', 7)
+                 + init_test('../Dataset/datas/H (%d).bmp', 8)
+                 + init_test('../Dataset/datas/I (%d).bmp', 9)
+                 + init_test('../Dataset/datas/J (%d).bmp', 10)
+                 + init_test('../Dataset/datas/K (%d).bmp', 11)
                  )
     print('得到的测试集共有 ' + len(test_data).__str__() + ' 条')
+    # print(test_data)
 
     train_dataset = MyDataset(train_data, transform=transform, loader=my_loader)
     train_loader = DataLoader(train_dataset, shuffle=True, batch_size=8, num_workers=0)
@@ -151,7 +156,10 @@ def load_data(sample):
     print('End of data processing...')
     return train_loader, test_loader
 
-
 # 单元测试
-if __name__ == '__main__':
-    a, b = load_data(0.8)
+# if __name__ == '__main__':
+#     a, b = load_data(0.5)
+#     c, d = load_data(0.6)
+#     e, f = load_data(0.7)
+#     g, h = load_data(0.8)
+#     i, j = load_data(0.9)
