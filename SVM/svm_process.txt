@@ -1,0 +1,182 @@
+55的过程现在开始
+
+Do you need to extract features again?
+是否需要重新获取特征？
+(y/n): y
+
+提取训练集特征中...
+Features are extracted and saved.
+所有特征已被提取并保存。
+
+提取测试集特征中...
+Features are extracted and saved.
+所有特征已被提取并保存。
+
+Do we need to retrain the model?
+是否需要重新训练模型？
+(y/n):y
+
+模型训练中...
+Model saved.
+训练模型已保存。
+
+训练集测试集比例为55的情况如下：
+Accuracy: 91.7582%
+Precision: 92.6893%
+Recall: 91.8286%
+Log Loss: 0.5369
+
+Do you need to remove the features of the test set?
+是否需要删除测试集的特征？
+(y/n): y
+
+55的过程现在结束
+
+==============================================
+
+64的过程现在开始
+
+Do you need to extract features again?
+是否需要重新获取特征？
+(y/n): y
+
+提取训练集特征中...
+Features are extracted and saved.
+所有特征已被提取并保存。
+
+提取测试集特征中...
+Features are extracted and saved.
+所有特征已被提取并保存。
+
+Do we need to retrain the model?
+是否需要重新训练模型？
+(y/n):y
+
+模型训练中...
+Model saved.
+训练模型已保存。
+
+训练集测试集比例为64的情况如下：
+Accuracy: 90.2778%
+Precision: 90.7566%
+Recall: 90.5588%
+Log Loss: 0.4569
+
+Do you need to remove the features of the test set?
+是否需要删除测试集的特征？
+(y/n): y
+
+64的过程现在结束
+
+==============================================
+
+73的过程现在开始
+
+Do you need to extract features again?
+是否需要重新获取特征？
+(y/n): y
+
+提取训练集特征中...
+Features are extracted and saved.
+所有特征已被提取并保存。
+
+提取测试集特征中...
+Features are extracted and saved.
+所有特征已被提取并保存。
+
+Do we need to retrain the model?
+是否需要重新训练模型？
+(y/n):y
+
+模型训练中...
+Model saved.
+训练模型已保存。
+
+训练集测试集比例为73的情况如下：
+Accuracy: 94.3925%
+Precision: 95.0302%
+Recall: 94.0978%
+Log Loss: 0.3678
+
+Do you need to remove the features of the test set?
+是否需要删除测试集的特征？
+(y/n): y
+
+73的过程现在结束
+
+==============================================
+
+82的过程现在开始
+
+Do you need to extract features again?
+是否需要重新获取特征？
+(y/n): y
+
+提取训练集特征中...
+Features are extracted and saved.
+所有特征已被提取并保存。
+
+提取测试集特征中...
+Features are extracted and saved.
+所有特征已被提取并保存。
+
+Do we need to retrain the model?
+是否需要重新训练模型？
+(y/n):y
+
+模型训练中...
+Model saved.
+训练模型已保存。
+
+训练集测试集比例为82的情况如下：
+Accuracy: 96.1538%
+Precision: 97.1717%
+Recall: 96.3925%
+Log Loss: 0.2946
+
+Do you need to remove the features of the test set?
+是否需要删除测试集的特征？
+(y/n): y
+
+82的过程现在结束
+
+==============================================
+
+91的过程现在开始
+
+Do you need to extract features again?
+是否需要重新获取特征？
+(y/n): y
+
+提取训练集特征中...
+Features are extracted and saved.
+所有特征已被提取并保存。
+
+提取测试集特征中...
+Features are extracted and saved.
+所有特征已被提取并保存。
+
+Do we need to retrain the model?
+是否需要重新训练模型？
+(y/n):y
+
+模型训练中...
+Model saved.
+训练模型已保存。
+
+训练集测试集比例为91的情况如下：
+Accuracy: 93.7500%
+Precision: 95.1515%
+Recall: 93.9394%
+Log Loss: 0.3234
+
+Do you need to remove the features of the test set?
+是否需要删除测试集的特征？
+(y/n): y
+
+91的过程现在结束
+
+==============================================
+
+
+Process finished with exit code 0

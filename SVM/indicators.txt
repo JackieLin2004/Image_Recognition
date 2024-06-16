@@ -1,0 +1,6 @@
+                                                              SVM结果汇总
+训练集测试集比例为55的情况如下：   训练集测试集比例为64的情况如下：   训练集测试集比例为73的情况如下：   训练集测试集比例为82的情况如下：   训练集测试集比例为91的情况如下：
+Accuracy: 91.7582%            Accuracy: 90.2778%           Accuracy: 94.3925%            Accuracy: 96.1538%            Accuracy: 93.7500%
+Precision: 92.6893%           Precision: 90.7566%          Precision: 95.0302%           Precision: 97.1717%           Precision: 95.1515%
+Recall: 91.8286%              Recall: 90.5588%             Recall: 94.0978%              Recall: 96.3925%              Recall: 93.9394%
+Log Loss: 0.5369              Log Loss: 0.4569             Log Loss: 0.3678              Log Loss: 0.2946              Log Loss: 0.3234
