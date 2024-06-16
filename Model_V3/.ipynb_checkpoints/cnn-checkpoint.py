@@ -1,4 +1,5 @@
 import os
+import sys
 import random
 import numpy as np
 import torch
@@ -73,6 +74,13 @@ def train(epoch, x, y):
         running_loss += loss.item()
         if batch_idx % 10 == 9:
             print('[%d, %5d] Loss: %.3f' % (epoch + 1, batch_idx + 1, running_loss / 10))
+            with open('cnn_process.txt', 'a', encoding='utf-8') as f:
+                # 将标准输出重定向到文件
+                sys.stdout = f
+                # 在此处写入你想打印的内容
+                print('[%d, %5d] Loss: %.3f' % (epoch + 1, batch_idx + 1, running_loss / 10))
+                # 重置标准输出到控制台
+                sys.stdout = sys.__stdout__
             running_loss = 0.0
 
     x.append(epoch + 1)
@@ -101,6 +109,14 @@ def test(z, precisions, recalls):
     recalls.append(recall)
     print('Accuracy on test set: %d %% ' % (100 * correct / total))
     print(f'Precision on test set: {precision:.4f}, Recall on test set: {recall:.4f}')
+    with open('cnn_process.txt', 'a', encoding='utf-8') as f:
+        # 将标准输出重定向到文件
+        sys.stdout = f
+        # 在此处写入你想打印的内容
+        print('Accuracy on test set: %d %% ' % (100 * correct / total))
+        print(f'Precision on test set: {precision:.4f}, Recall on test set: {recall:.4f}')
+        # 重置标准输出到控制台
+        sys.stdout = sys.__stdout__
 
 
 def test_for_pr_curve(y_true, y_scores):
@@ -148,7 +164,8 @@ if __name__ == '__main__':
     plt.ylabel('Precision')
     plt.title('5:5 Precision-Recall Curve')
     plt.legend(loc="best")
-    plt.savefig(f"./5_5-Precision-Recall-Curve.png")
+    # plt.savefig(f"./5_5-Precision-Recall-Curve.png")
+    plt.savefig(f"./images/5_5-Precision-Recall-Curve.png")
     plt.show()
     plt.close()
     # ==================================================================================
@@ -173,6 +190,13 @@ if __name__ == '__main__':
     lowess13 = apply_lowess(p1, x1, frac=0.1)
     lowess14 = apply_lowess(r1, x1, frac=0.1)
     print('5:5 finished-----------------------')
+    with open('cnn_process.txt', 'a', encoding='utf-8') as f:
+        # 将标准输出重定向到文件
+        sys.stdout = f
+        # 在此处写入你想打印的内容
+        print('5:5 finished-----------------------')
+        # 重置标准输出到控制台
+        sys.stdout = sys.__stdout__
     # ------------------------------------------------------------------------------------------
 
     model = CNN()
@@ -209,7 +233,7 @@ if __name__ == '__main__':
     plt.ylabel('Precision')
     plt.title('6:4 Precision-Recall Curve')
     plt.legend(loc="best")
-    plt.savefig(f"./6_4-Precision-Recall-Curve.png")
+    plt.savefig(f"./images/6_4-Precision-Recall-Curve.png")
     plt.show()
     plt.close()
     # ==================================================================================
@@ -234,6 +258,13 @@ if __name__ == '__main__':
     lowess23 = apply_lowess(p2, x2, frac=0.1)
     lowess24 = apply_lowess(r2, x2, frac=0.1)
     print('6:4 finished-----------------------')
+    with open('cnn_process.txt', 'a', encoding='utf-8') as f:
+        # 将标准输出重定向到文件
+        sys.stdout = f
+        # 在此处写入你想打印的内容
+        print('6:4 finished-----------------------')
+        # 重置标准输出到控制台
+        sys.stdout = sys.__stdout__
     # ------------------------------------------------------------------------------------------
 
     model = CNN()
@@ -270,7 +301,7 @@ if __name__ == '__main__':
     plt.ylabel('Precision')
     plt.title('7:3 Precision-Recall Curve')
     plt.legend(loc="best")
-    plt.savefig(f"./7_3-Precision-Recall-Curve.png")
+    plt.savefig(f"./images/7_3-Precision-Recall-Curve.png")
     plt.show()
     plt.close()
     # ==================================================================================
@@ -295,6 +326,13 @@ if __name__ == '__main__':
     lowess33 = apply_lowess(p3, x3, frac=0.1)
     lowess34 = apply_lowess(r3, x3, frac=0.1)
     print('7:3 finished-----------------------')
+    with open('cnn_process.txt', 'a', encoding='utf-8') as f:
+        # 将标准输出重定向到文件
+        sys.stdout = f
+        # 在此处写入你想打印的内容
+        print('7:3 finished-----------------------')
+        # 重置标准输出到控制台
+        sys.stdout = sys.__stdout__
     # ------------------------------------------------------------------------------------------
 
     model = CNN()
@@ -331,7 +369,7 @@ if __name__ == '__main__':
     plt.ylabel('Precision')
     plt.title('8:2 Precision-Recall Curve')
     plt.legend(loc="best")
-    plt.savefig(f"./8_2-Precision-Recall-Curve.png")
+    plt.savefig(f"./images/8_2-Precision-Recall-Curve.png")
     plt.show()
     plt.close()
     # ==================================================================================
@@ -356,6 +394,13 @@ if __name__ == '__main__':
     lowess43 = apply_lowess(p4, x4, frac=0.1)
     lowess44 = apply_lowess(r4, x4, frac=0.1)
     print('8:2 finished-----------------------')
+    with open('cnn_process.txt', 'a', encoding='utf-8') as f:
+        # 将标准输出重定向到文件
+        sys.stdout = f
+        # 在此处写入你想打印的内容
+        print('8:2 finished-----------------------')
+        # 重置标准输出到控制台
+        sys.stdout = sys.__stdout__
     # ------------------------------------------------------------------------------------------
 
     model = CNN()
@@ -392,7 +437,7 @@ if __name__ == '__main__':
     plt.ylabel('Precision')
     plt.title('9:1 Precision-Recall Curve')
     plt.legend(loc="best")
-    plt.savefig(f"./9_1-Precision-Recall-Curve.png")
+    plt.savefig(f"./images/9_1-Precision-Recall-Curve.png")
     plt.show()
     plt.close()
     # ==================================================================================
@@ -417,52 +462,59 @@ if __name__ == '__main__':
     lowess53 = apply_lowess(p5, x5, frac=0.1)
     lowess54 = apply_lowess(r5, x5, frac=0.1)
     print('9:1 finished-----------------------')
+    with open('cnn_process.txt', 'a', encoding='utf-8') as f:
+        # 将标准输出重定向到文件
+        sys.stdout = f
+        # 在此处写入你想打印的内容
+        print('9:1 finished-----------------------')
+        # 重置标准输出到控制台
+        sys.stdout = sys.__stdout__
     # ------------------------------------------------------------------------------------------
 
     # 绘制损失曲线
     plot_result(x1, sma11, sma21, sma31, sma41, sma51,
-                'SMA Loss Image', 'Loss', './SMA_Loss.png')
+                'SMA Loss Image', 'Loss', './images/SMA_Loss.png')
     plot_result(x1, ema11, ema21, ema31, ema41, ema51,
-                'EMA Loss Image', 'Loss', './EMA_Loss.png')
+                'EMA Loss Image', 'Loss', './images/EMA_Loss.png')
     plot_result(x1, gaussian11, gaussian21, gaussian31, gaussian41, gaussian51,
-                'GAU Loss Image', 'Loss', './GAU_Loss.png')
+                'GAU Loss Image', 'Loss', './images/GAU_Loss.png')
     plot_result(x1, median11, median21, median31, median41, median51,
-                'MED Loss Image', 'Loss', './MED_Loss.png')
+                'MED Loss Image', 'Loss', './images/MED_Loss.png')
     plot_result(x1, lowess11, lowess21, lowess31, lowess41, lowess51,
-                'LOW Loss Image', 'Loss', './LOW_Loss.png')
+                'LOW Loss Image', 'Loss', './images/LOW_Loss.png')
 
     # 绘制准确率曲线
     plot_result(x1, sma12, sma22, sma32, sma42, sma52,
-                'SMA Accuracy Image', 'Accuracy', './SMA_Accuracy.png')
+                'SMA Accuracy Image', 'Accuracy', './images/SMA_Accuracy.png')
     plot_result(x1, ema12, ema22, ema32, ema42, ema52,
-                'EMA Accuracy Image', 'Accuracy', './EMA_Accuracy.png')
+                'EMA Accuracy Image', 'Accuracy', './images/EMA_Accuracy.png')
     plot_result(x1, gaussian12, gaussian22, gaussian32, gaussian42, gaussian52,
-                'GAU Accuracy Image', 'Accuracy', './GAU_Accuracy.png')
+                'GAU Accuracy Image', 'Accuracy', './images/GAU_Accuracy.png')
     plot_result(x1, median12, median22, median32, median42, median52,
-                'MED Accuracy Image', 'Accuracy', './MED_Accuracy.png')
+                'MED Accuracy Image', 'Accuracy', './images/MED_Accuracy.png')
     plot_result(x1, lowess12, lowess22, lowess32, lowess42, lowess52,
-                'LOW Accuracy Image', 'Accuracy', './LOW_Accuracy.png')
+                'LOW Accuracy Image', 'Accuracy', './images/LOW_Accuracy.png')
 
     # 绘制精确率图像
     plot_result(x1, sma13, sma23, sma33, sma43, sma53,
-                'SMA Precision Image', 'Precision', './SMA_Precision.png')
+                'SMA Precision Image', 'Precision', './images/SMA_Precision.png')
     plot_result(x1, ema13, ema23, ema33, ema43, ema53,
-                'EMA Precision Image', 'Precision', './EMA_Precision.png')
+                'EMA Precision Image', 'Precision', './images/EMA_Precision.png')
     plot_result(x1, gaussian13, gaussian23, gaussian33, gaussian43, gaussian53,
-                'GAU Precision Image', 'Precision', './GAU_Precision.png')
+                'GAU Precision Image', 'Precision', './images/GAU_Precision.png')
     plot_result(x1, median13, median23, median33, median43, median53,
-                'MED Precision Image', 'Precision', './MED_Precision.png')
+                'MED Precision Image', 'Precision', './images/MED_Precision.png')
     plot_result(x1, lowess13, lowess23, lowess33, lowess43, lowess53,
-                'LOW Precision Image', 'Precision', './LOW_Precision.png')
+                'LOW Precision Image', 'Precision', './images/LOW_Precision.png')
 
     # 绘制召回率图像
     plot_result(x1, sma14, sma24, sma34, sma44, sma54,
-                'SMA Recall Image', 'Recall', './SMA_Recall.png')
+                'SMA Recall Image', 'Recall', './images/SMA_Recall.png')
     plot_result(x1, ema14, ema24, ema34, ema44, ema54,
-                'EMA Recall Image', 'Recall', './EMA_Recall.png')
+                'EMA Recall Image', 'Recall', './images/EMA_Recall.png')
     plot_result(x1, gaussian14, gaussian24, gaussian34, gaussian44, gaussian54,
-                'GAU Recall Image', 'Recall', './GAU_Recall.png')
+                'GAU Recall Image', 'Recall', './images/GAU_Recall.png')
     plot_result(x1, median14, median24, median34, median44, median54,
-                'MED Recall Image', 'Recall', './MED_Recall.png')
+                'MED Recall Image', 'Recall', './images/MED_Recall.png')
     plot_result(x1, lowess14, lowess24, lowess34, lowess44, lowess54,
-                'LOW Recall Image', 'Recall', './LOW_Recall.png')
+                'LOW Recall Image', 'Recall', './images/LOW_Recall.png')

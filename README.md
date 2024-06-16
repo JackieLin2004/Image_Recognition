@@ -27,9 +27,6 @@ python cnn.py
 
 - 本次实验中我们分别采用这两种方法来实现图像的多分类问题，无监督学习方面采用 `K-Means` 聚类分析，而监督学习采用卷积神经网络 `CNN` 以及支持向量机 `SVM` 来进行
 
-
-- 另外，我们还补充采用了**支持向量机SVM**也来实现一下这个多分类问题
-
 ### K-Means 实现思路
 
 - 将图片转换成张量，放到高纬度坐标系里求笛卡尔距离，不断更新每个簇（`cluster`）的中心，最终分好的类就是给定的 `cluster` 的数量
@@ -55,7 +52,7 @@ python cnn.py
 ![result.png](SVM%2Fimages%2Fresult.png)
 
 
-- 可以看出，在训练集和测试集之比为8:2的时候效果最好 
+- 可以看出，效果比无监督学习要好，且在训练集和测试集之比为8:2的时候效果最好
 
 ### CNN 实现思路
 
@@ -76,8 +73,8 @@ python cnn.py
 
 
 - 最后实现训练函数和测试函数，将学习率设置为0.001，训练1000轮，同时画出损失函数和准确率函数的曲线，如图：<br/>
-  ![loss.png](loss.png)
-  ![accuracy.png](accuracy.png)
+  ![loss.png](Model_V1/images/loss.png)
+  ![accuracy.png](Model_V1/images/accuracy.png)
 
 
 - 可以看到整体曲线非常符合曲线函数，同时到最后，损失趋近于0，且准确率趋近于100%

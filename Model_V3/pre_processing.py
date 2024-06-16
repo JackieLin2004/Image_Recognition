@@ -2,6 +2,7 @@ from torchvision import transforms
 from torch.utils.data import Dataset, DataLoader
 from PIL import Image
 import random
+import sys
 
 
 # 使用PIL包来处理图片，加载图片并转为RGB格式
@@ -102,6 +103,13 @@ def load_data(sample):
     test = [[] for i in range(12)]
 
     print('Data processing...')
+    with open('cnn_process.txt', 'a', encoding='utf-8') as f:
+        # 将标准输出重定向到文件
+        sys.stdout = f
+        # 在此处写入你想打印的内容
+        print('Data processing...')
+        # 重置标准输出到控制台
+        sys.stdout = sys.__stdout__
 
     # 图像变换操作
     transform = transforms.Compose([
@@ -115,6 +123,13 @@ def load_data(sample):
     ])
 
     print(sample)
+    with open('cnn_process.txt', 'a', encoding='utf-8') as f:
+        # 将标准输出重定向到文件
+        sys.stdout = f
+        # 在此处写入你想打印的内容
+        print(sample)
+        # 重置标准输出到控制台
+        sys.stdout = sys.__stdout__
 
     # 训练集的数据（路径+标签）的列表
     train_data = (init_process('../Dataset/datas/A (%d).bmp', [1, 39], 1, sample)
@@ -130,6 +145,13 @@ def load_data(sample):
                   + init_process('../Dataset/datas/K (%d).bmp', [1, 31], 11, sample)
                   )
     print('得到的训练集共有 ' + len(train_data).__str__() + ' 条')
+    with open('cnn_process.txt', 'a', encoding='utf-8') as f:
+        # 将标准输出重定向到文件
+        sys.stdout = f
+        # 在此处写入你想打印的内容
+        print('得到的训练集共有 ' + len(train_data).__str__() + ' 条')
+        # 重置标准输出到控制台
+        sys.stdout = sys.__stdout__
     # print(train_data)
 
     # 测试集的数据（路径+标签）的列表
@@ -146,6 +168,14 @@ def load_data(sample):
                  + init_test('../Dataset/datas/K (%d).bmp', 11)
                  )
     print('得到的测试集共有 ' + len(test_data).__str__() + ' 条')
+    with open('cnn_process.txt', 'a', encoding='utf-8') as f:
+        # 将标准输出重定向到文件
+        sys.stdout = f
+        # 在此处写入你想打印的内容
+        print('得到的测试集共有 ' + len(test_data).__str__() + ' 条')
+        # 重置标准输出到控制台
+        sys.stdout = sys.__stdout__
+
     # print(test_data)
 
     train_dataset = MyDataset(train_data, transform=transform, loader=my_loader)
@@ -154,6 +184,13 @@ def load_data(sample):
     test_loader = DataLoader(test_dataset, shuffle=False, batch_size=8, num_workers=0)
 
     print('End of data processing...')
+    with open('cnn_process.txt', 'a', encoding='utf-8') as f:
+        # 将标准输出重定向到文件
+        sys.stdout = f
+        # 在此处写入你想打印的内容
+        print('End of data processing...')
+        # 重置标准输出到控制台
+        sys.stdout = sys.__stdout__
     return train_loader, test_loader
 
 # 单元测试
